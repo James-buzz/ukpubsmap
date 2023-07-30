@@ -1,38 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Visualising Large Datasets with DeckGL and Mapbox
 
-## Getting Started
+A simple demonstration of how you can use DeckGL to visualise a large-scale datasets for mapping libraries such as MapboxJS.
 
-First, run the development server:
+Using DeckGL, you can efficiently render large datasets. As an example, this repository visualises all the pubs in the UK, totalling over 50,000 data points.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Technologies used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Mapbox**: A powerful mapping library for mobile and web applications. We are using it here to render the base map.
+- **DeckGL**: A WebGL-powered framework specifically designed for exploring and visualising data sets at scale. In this project, we use DeckGL to render the data points (pubs) on top of the Mapbox map. DeckGL makes use of GPU acceleration to efficiently handle large amounts of data.
+- **React**: A JavaScript library for building user interfaces.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Installation and Setup
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone this repository
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+   ```bash
+   git clone https://github.com/james-buzz/ukpubsmap.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Install dependencies
 
-## Learn More
+   ```bash
+   cd ukpubsmap
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Start the development server
+   ```bash
+   npm start
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Visit `http://localhost:3000` to view the app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Data
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The data used in this project represents over 50,000 pubs in the UK. The details include the pub name, address, latitude, and longitude.
+The data is publicly available at https://www.kaggle.com/datasets/rtatman/every-pub-in-england
