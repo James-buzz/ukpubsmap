@@ -27,7 +27,7 @@ Using DeckGL, you can efficiently render large datasets. As an example, this rep
 
 3. Start the development server
    ```bash
-   npm start
+   npm run dev
    ```
 
 Visit `http://localhost:3000` to view the app.
