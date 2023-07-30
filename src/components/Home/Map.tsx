@@ -1,10 +1,11 @@
 import useFetchPubs from '@/hooks/useFetchPubs';
 import { Pub } from '@/types/Pub';
-import { ScatterplotLayer } from '@deck.gl/layers/typed';
+import { IconLayer } from '@deck.gl/layers/typed';
 import DeckGL from '@deck.gl/react/typed';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { IoIosRefreshCircle } from 'react-icons/io'; // Loading icon
 import MapBox, { NavigationControl } from 'react-map-gl';
+import PubIcon from '../../../public/assets/pub.png';
 
 const INITIAL_VIEW_STATE = {
 	longitude: -2.2426,
@@ -20,12 +21,20 @@ const Map: React.FC = () => {
 	if (error) return <p>Error: {error.message}</p>;
 
 	const layers = [
-		new ScatterplotLayer({
-			id: 'scatterplot-layer',
-			getRadius: 300,
+		new IconLayer({
+			id: 'icon-layer',
 			data,
+			pickable: false,
+			getIcon: (d) => ({
+				url: PubIcon.src,
+				width: 30,
+				height: 30,
+				anchorY: 15,
+			}),
+			getSize: () => 10,
+			sizeScale: 0.8,
 			getPosition: (d: Pub) => [Number(d.longitude), Number(d.latitude)],
-			getFillColor: () => [255, 173, 0, 255],
+			getColor: () => [255, 173, 0, 255],
 		}),
 	];
 
@@ -39,7 +48,7 @@ const Map: React.FC = () => {
 			</MapBox>
 			{loading && (
 				<div className="absolute top-0 right-0 m-3">
-					<IoIosRefreshCircle className="text-4xl text-blue-500 animate-spin" />
+					<IoIosRefreshCircle className="text-4xl text-orange-500 animate-spin" />
 				</div>
 			)}
 		</DeckGL>
