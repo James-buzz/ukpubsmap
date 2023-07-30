@@ -25,7 +25,15 @@ Using DeckGL, you can efficiently render large datasets. As an example, this rep
    npm install
    ```
 
-3. Start the development server
+3. Create an .env.local file in the root directory of the project and add your Mapbox API Token to it. You can get an API token by signing up on the [Mapbox website](https://www.mapbox.com/).
+
+   ```bash
+   touch .env.local
+   echo 'NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=<Your Mapbox Access Token>' >> .env.local
+   ```
+
+4. Start the development server
+
    ```bash
    npm run dev
    ```
