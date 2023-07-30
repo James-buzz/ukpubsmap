@@ -3,8 +3,9 @@ import { Pub } from '@/types/Pub';
 import { IconLayer } from '@deck.gl/layers/typed';
 import DeckGL from '@deck.gl/react/typed';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import React from 'react';
 import { IoIosRefreshCircle } from 'react-icons/io'; // Loading icon
-import MapBox, { NavigationControl } from 'react-map-gl';
+import MapBox, { NavigationControl, ScaleControl } from 'react-map-gl';
 import PubIcon from '../../../public/assets/pub.png';
 
 const INITIAL_VIEW_STATE = {
@@ -35,6 +36,7 @@ const Map: React.FC = () => {
 			sizeScale: 0.8,
 			getPosition: (d: Pub) => [Number(d.longitude), Number(d.latitude)],
 			getColor: () => [255, 173, 0, 255],
+			sizeMinPixels: 8,
 		}),
 	];
 
@@ -42,9 +44,10 @@ const Map: React.FC = () => {
 		<DeckGL initialViewState={INITIAL_VIEW_STATE} controller={true} layers={layers}>
 			<MapBox
 				mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
-				mapStyle="mapbox://styles/mapbox/dark-v11"
+				mapStyle="mapbox://styles/mapbox/light-v11"
 			>
 				<NavigationControl />
+				<ScaleControl />
 			</MapBox>
 			{loading && (
 				<div className="absolute top-0 right-0 m-3">
