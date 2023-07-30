@@ -1,10 +1,10 @@
-import DeckGL from '@deck.gl/react/typed';
-import { ScatterplotLayer } from '@deck.gl/layers/typed';
-import MapBox, { NavigationControl } from 'react-map-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { IoIosRefreshCircle } from 'react-icons/io'; // Loading icon
 import useFetchPubs from '@/hooks/useFetchPubs';
 import { Pub } from '@/types/Pub';
+import { ScatterplotLayer } from '@deck.gl/layers/typed';
+import DeckGL from '@deck.gl/react/typed';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { IoIosRefreshCircle } from 'react-icons/io'; // Loading icon
+import MapBox, { NavigationControl } from 'react-map-gl';
 
 const INITIAL_VIEW_STATE = {
 	longitude: -2.2426,
@@ -25,7 +25,7 @@ const Map: React.FC = () => {
 			getRadius: 300,
 			data,
 			getPosition: (d: Pub) => [Number(d.longitude), Number(d.latitude)],
-			getFillColor: () => [0, 140, 255, 255],
+			getFillColor: () => [255, 173, 0, 255],
 		}),
 	];
 
